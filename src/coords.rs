@@ -34,7 +34,11 @@ impl<const N: usize> CartesianCoordinates<f64, N> {
     }
 
     pub fn modulus(&self) -> f64 {
-        self.0.iter().copied().fold(0.0, |sum, v| sum + v.powi(2)).sqrt()
+        self.0
+            .iter()
+            .copied()
+            .fold(0.0, |sum, v| sum + v.powi(2))
+            .sqrt()
     }
 }
 
