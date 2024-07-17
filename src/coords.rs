@@ -1,4 +1,4 @@
-pub enum Coordinates<T, const N: usize> {
+pub enum GenericCoordinates<T, const N: usize> {
     // Hexagonal(HexagonalCoordinates<T>),
     Square(CartesianCoordinates<T, N>),
 }
@@ -47,3 +47,7 @@ impl<T: Copy + Default, const N: usize> Default for CartesianCoordinates<T, N> {
         Self([T::default(); N])
     }
 }
+
+pub trait CoordinateSystem: Copy + Default {}
+
+impl<T: Copy + Default, const N: usize> CoordinateSystem for CartesianCoordinates<T, N> {}
